@@ -64,12 +64,28 @@ async function handleEvent(event) {
     }
     const { protocol, pathname } = new URL(event.request.url)
 
+    let page, response
     switch (pathname) {
       case '/':
-        const page = await getAssetFromKV(event, options);
+
+        page = await getAssetFromKV(event, options);
+        // allow headers to be altered
+        response = new Response(page.body, page);
+
+        response.headers.set("X-XSS-Protection", "1; mode=block");
+        response.headers.set("X-Content-Type-Options", "nosniff");
+        response.headers.set("X-Frame-Options", "DENY");
+        response.headers.set("Referrer-Policy", "unsafe-url");
+        response.headers.set("Feature-Policy", "none");
+
+        return response;
+
+      case '/view':
+
+        page = await getAssetFromKV(event, options);
 
         // allow headers to be altered
-        const response = new Response(page.body, page);
+        response = new Response(page.body, page);
 
         response.headers.set("X-XSS-Protection", "1; mode=block");
         response.headers.set("X-Content-Type-Options", "nosniff");
@@ -95,12 +111,24 @@ async function handleEvent(event) {
           verifyCredentials(user, pass)
 
           // Only returns this response when no exception is thrown.
-          return new Response('You have private access.', {
-            status: 200,
-            headers: {
-              'Cache-Control': 'no-store'
-            }
-          })
+          page = await getAssetFromKV(event, options);
+
+          // allow headers to be altered
+          response = new Response(page.body, page);
+
+          response.headers.set("X-XSS-Protection", "1; mode=block");
+          response.headers.set("X-Content-Type-Options", "nosniff");
+          response.headers.set("X-Frame-Options", "DENY");
+          response.headers.set("Referrer-Policy", "unsafe-url");
+          response.headers.set("Feature-Policy", "none");
+
+          return response;
+          // return new Response('You have private access.', {
+          //   status: 200,
+          //   headers: {
+          //     'Cache-Control': 'no-store'
+          //   }
+          // })
         }
 
         // Not authenticated.
@@ -119,10 +147,10 @@ async function handleEvent(event) {
     }
 
     // return new Response('Not Found.', { status: 404 })
-    const page = await getAssetFromKV(event, options);
+    page = await getAssetFromKV(event, options);
 
     // allow headers to be altered
-    const response = new Response(page.body, page);
+    response = new Response(page.body, page);
 
     response.headers.set("X-XSS-Protection", "1; mode=block");
     response.headers.set("X-Content-Type-Options", "nosniff");
