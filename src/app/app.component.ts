@@ -10,7 +10,7 @@ export class AppComponent {
   constructor(private http: HttpClient) {}
 
   configureAccess(){
-   this.http.get('/hello-world').subscribe(res => {
+   this.http.get('https://static-angular-page-b7v.pages.dev/hello-world').subscribe(res => {
      console.log(res);
      
    })
