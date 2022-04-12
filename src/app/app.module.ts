@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 const routes: Routes = [
   { path: 'view', component: HomeComponent },
@@ -15,7 +17,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AppComponent, PageNotFoundComponent, HomeComponent],
-  imports: [RouterModule.forRoot(routes), BrowserModule],
+  imports: [RouterModule.forRoot(routes), BrowserModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

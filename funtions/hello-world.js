@@ -1,4 +1,4 @@
-export async function onRequest(context) {
+export async function onRequestGet(context) {
   // Contents of context object
   const {
     request, // same as existing Worker API
