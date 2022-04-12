@@ -13,7 +13,7 @@ export class AppComponent {
   }
 
   configureAccess(){
-   this.http.get('https://static-angular-page-b7v.pages.dev/hello-world').subscribe(res => {
+   this.http.get('https://static-angular-page-b7v.pages.dev/hello-world', {responseType: 'text'}).subscribe(res => {
      console.log('hello2');
      console.log(res);
      
