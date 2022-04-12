@@ -1,5 +1,7 @@
 .btn {
-    border: 1px solid red;
-    background-color: yellow;
-    padding: 40px 20px
+    background-color:grey;
+    border: 1px solid #000;
+    color: #030303;
+    padding: 10px  12px;
+    transition: background-color 0.5s cubic-bezier(0.05,0,0,1);
 }
