@@ -20,6 +20,7 @@
     "@angular/router": "~12.2.0",
     "@cloudflare/workers-types": "^3.4.0",
     "fs": "0.0.1-security",
+    "ng-modules": "^3.0.11",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "wrangler": "0.0.4",
