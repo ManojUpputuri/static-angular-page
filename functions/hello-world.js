@@ -1,4 +1,4 @@
 
-export const onRequest = () => {
-  return new Response(new Date().toISOString())
-}
+// export const onRequestPost = (context) => {
+//   return new Response(new Date().toISOString())
+// }
