@@ -18,8 +18,8 @@ export class AppComponent {
   //    console.log(res);
   //  })
   // };
-gettingData(){
-  this.http.post('/submit', {responseType: 'text'}).subscribe(res => {
+gettingData(form:any){
+  this.http.post('https://static-angular-page-b7v.pages.dev/api/submit',{}).subscribe(res => {
     console.log('hello2');
     console.log(res);
   })

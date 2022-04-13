@@ -1,5 +1,5 @@
 <!-- <router-outlet></router-outlet> -->
-<form method="POST" action="/functions/api/submit.js">
+<form>
   <label for="i-fullname">Full Name</label>
   <input id="i-fullname" type="text" name="fullname" pattern="[A-Za-z]+" required /><br>
 
@@ -9,5 +9,5 @@
   <label for="i-age">Your Age</label>
   <input id="i-age" type="number" name="age" min="18" required /><br>
 
-  <button type="submit">Submit</button>
+  <button type="submit" (click)="gettingData(1)">Submit</button>
 </form>
