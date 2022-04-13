@@ -1,13 +1,16 @@
-<!-- <router-outlet></router-outlet> -->
-<form>
-  <label for="i-fullname">Full Name</label>
-  <input id="i-fullname" type="text" name="fullname" pattern="[A-Za-z]+" required /><br>
+<form method="POST">
+      <div class="input">
+        <label for="name">Full Name</label>
+        <input id="name" name="name" type="text"/>
+      </div>
 
-  <label for="i-email">Email Address</label>
-  <input id="i-email" type="email" name="email" required /><br>
-
-  <label for="i-age">Your Age</label>
-  <input id="i-age" type="number" name="age" min="18" required /><br>
-
+      <div class="input">
+        <label for="email">Email Address</label>
+        <input id="email" name="email" type="email" />
+      </div>
+      <div class="input">
+        <label for="Contact">Contact No</label>
+        <input id="Contact" name="Contact" type="Contact" />
+      </div>
+    </form>
   <button type="submit" (click)="gettingData(1)">Submit</button>
-</form>
